@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="system">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Catálogo de Equipos - Referencias</title>
+    <style>
+        /* ----- TEMA (variables) ----- */
+        :root {
+            --bg: #f5f5f7;
+            --card-bg: #ffffff;
+            --text: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --border: #e5e5ea;
+            --shadow: rgba(0,0,0,0.04);
+            --input-bg: #f9f9fa;
+            --input-border: #d1d1d6;
+            --placeholder-bg: #f0f0f2;
+            --btn-hover: #e5e5ea;
+            --modal-overlay: rgba(0,0,0,0.4);
+            --radius: 16px;
+            --font-base: 16px;
+        }
+        [data-theme="dark"] {
+            --bg: #1c1c1e;
+            --card-bg: #2c2c2e;
+            --text: #f5f5f7;
+            --text-secondary: #aeaeae;
+            --border: #3a3a3c;
+            --shadow: rgba(0,0,0,0.5);
+            --input-bg: #3a3a3c;
+            --input-border: #5a5a5c;
+            --placeholder-bg: #3a3a3c;
+            --btn-hover: #3a3a3c;
+            --modal-overlay: rgba(0,0,0,0.7);
+        }
+        @media (prefers-color-scheme: dark) {
+            [data-theme="system"] {
+                --bg: #1c1c1e;
+                --card-bg: #2c2c2e;
+                --text: #f5f5f7;
+                --text-secondary: #aeaeae;
+                --border: #3a3a3c;
+                --shadow: rgba(0,0,0,0.5);
+                --input-bg: #3a3a3c;
+                --input-border: #5a5a5c;
+                --placeholder-bg: #3a3a3c;
+                --btn-hover: #3a3a3c;
+                --modal-overlay: rgba(0,0,0,0.7);
+            }
+        }
+
+        /* ----- RESET Y FUENTES ----- */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 20px 16px;
+            transition: background 0.2s, color 0.2s;
+            font-size: var(--font-base);
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ----- CABECERA ----- */
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1 1 200px;
+        }
+        .logo-area {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: 0.15s;
+            position: relative;
+        }
+        .logo-area:hover { border-color: #007aff; box-shadow: 0 0 0 3px rgba(0,122,255,0.15); }
+        .logo-area img { width:100%; height:100%; object-fit:contain; }
+        .logo-area .default-icon { font-size:24px; line-height:1; color:var(--text-secondary); }
+        .logo-actions { display:flex; gap:4px; }
+        .logo-actions button {
+            background:transparent; border:none; color:var(--text-secondary);
+            font-size:0.8rem; cursor:pointer; padding:2px 6px; border-radius:30px;
+        }
+        .logo-actions button:hover { background:var(--btn-hover); }
+        header h1 {
+            font-weight:600; font-size:1.6rem; letter-spacing:-0.5px;
+            background:linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+            white-space:nowrap;
+        }
+        .header-right {
+            display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+            margin-left:auto;
+        }
+        .theme-selector {
+            display:flex; gap:4px; background:var(--card-bg); border-radius:30px;
+            padding:4px; border:1px solid var(--border);
+        }
+        .theme-selector button {
+            background:transparent; border:none; padding:4px 12px; border-radius:30px;
+            font-size:0.85rem; cursor:pointer; color:var(--text-secondary); font-weight:500;
+        }
+        .theme-selector button.active { background:#007aff; color:white; }
+        .theme-selector button:hover:not(.active) { background:var(--btn-hover); }
+
+        .btn-add {
+            background:#007aff; color:white; border:none; padding:6px 16px;
+            border-radius:30px; font-weight:500; font-size:0.9rem; cursor:pointer;
+            transition:0.15s; white-space:nowrap;
+        }
+        .btn-add:hover { background:#0066d9; }
+
+        .search-box {
+            display:flex; align-items:center; background:var(--card-bg);
+            border-radius:12px; padding:6px 14px; box-shadow:0 4px 12px var(--shadow);
+            border:1px solid var(--border); transition:0.2s; flex:1 1 220px;
+        }
+        .search-box:focus-within { border-color:#007aff; box-shadow:0 4px 16px rgba(0,122,255,0.15); }
+        .search-box input {
+            border:none; outline:none; font-size:0.95rem; padding:6px 8px;
+            width:100%; background:transparent; color:var(--text);
+        }
+        .search-box .icon { color:var(--text-secondary); font-size:1.1rem; margin-right:6px; }
+
+        .result-count {
+            font-size:0.9rem; color:var(--text-secondary); margin-top:8px;
+        }
+
+        /* ----- GRID DE TARJETAS ----- */
+        .grid {
+            display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+            gap:20px; margin-top:10px;
+        }
+
+        /* ----- TARJETA ----- */
+        .card {
+            background:var(--card-bg); border-radius:var(--radius);
+            box-shadow:0 6px 20px var(--shadow); overflow:hidden;
+            transition:transform 0.2s, box-shadow 0.2s;
+            display:flex; flex-direction:column; border:1px solid var(--border);
+        }
+        .card:hover { transform:translateY(-4px); box-shadow:0 14px 32px var(--shadow); }
+        .card-img {
+            width:100%; height:170px; background:var(--placeholder-bg);
+            display:flex; align-items:center; justify-content:center; overflow:hidden;
+            border-bottom:1px solid var(--border);
+        }
+        .card-img img { width:100%; height:100%; object-fit:cover; }
+        .card-img .placeholder {
+            color:var(--text-secondary); font-size:0.85rem; text-align:center;
+            padding:10px; display:flex; flex-direction:column; align-items:center; gap:6px;
+        }
+        .card-img .placeholder svg { width:44px; height:44px; opacity:0.3; }
+
+        .card-body {
+            padding:14px 16px 16px; flex:1; display:flex; flex-direction:column;
+        }
+        .card-body .nombre {
+            font-weight:600; font-size:1rem; line-height:1.3; margin-bottom:4px;
+            display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+        }
+        .card-body .referencia {
+            font-size:0.8rem; color:var(--text-secondary); background:var(--placeholder-bg);
+            padding:3px 10px; border-radius:30px; display:inline-block; align-self:flex-start;
+            margin-top:2px; font-weight:500; letter-spacing:0.2px;
+        }
+        .card-actions {
+            display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;
+        }
+        .btn {
+            display:inline-flex; align-items:center; justify-content:center; gap:4px;
+            padding:6px 14px; border-radius:30px; border:none; font-size:0.8rem;
+            font-weight:500; cursor:pointer; transition:0.15s;
+            background:var(--placeholder-bg); color:var(--text);
+            flex:1 1 auto; min-width:70px;
+        }
+        .btn:hover { background:var(--btn-hover); }
+        .btn-download { background:#34c759; color:white; }
+        .btn-download:hover { background:#2db84d; }
+        .btn-edit { background:#ff9500; color:white; }
+        .btn-edit:hover { background:#e68600; }
+        .btn-danger { background:#ff3b30; color:white; }
+        .btn-danger:hover { background:#e6352a; }
+        .btn-primary { background:#007aff; color:white; }
+        .btn-primary:hover { background:#0066d9; }
+
+        /* ----- MODALES ----- */
+        .modal-overlay {
+            display:none; position:fixed; inset:0; background:var(--modal-overlay);
+            backdrop-filter:blur(4px); justify-content:center; align-items:center;
+            z-index:1000; padding:16px;
+        }
+        .modal-overlay.active { display:flex; }
+        .modal {
+            background:var(--card-bg); border-radius:24px; max-width:520px; width:100%;
+            padding:24px 20px; box-shadow:0 30px 60px rgba(0,0,0,0.2);
+            animation:modalIn 0.25s ease; max-height:90vh; overflow-y:auto;
+        }
+        @keyframes modalIn { from { transform:scale(0.95); opacity:0; } to { transform:scale(1); opacity:1; } }
+        .modal h2 { font-weight:600; font-size:1.4rem; margin-bottom:4px; }
+        .modal p { color:var(--text-secondary); margin-bottom:16px; font-size:0.9rem; }
+        .modal label { font-weight:500; display:block; margin-top:12px; margin-bottom:4px; font-size:0.9rem; }
+        .modal input[type="text"],
+        .modal input[type="password"],
+        .modal input[type="file"],
+        .modal textarea {
+            width:100%; padding:8px 12px; border:1px solid var(--input-border);
+            border-radius:10px; font-size:0.95rem; background:var(--input-bg);
+            color:var(--text); transition:0.15s;
+        }
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color:#007aff; outline:none; background:var(--card-bg);
+            box-shadow:0 0 0 3px rgba(0,122,255,0.1);
+        }
+        .modal textarea { resize:vertical; min-height:80px; font-family:inherit; }
+        .modal .btn-group {
+            display:flex; gap:10px; margin-top:20px; justify-content:flex-end; flex-wrap:wrap;
+        }
+        .modal .btn-group .btn { flex:0 1 auto; padding:8px 20px; }
+        .modal .btn-group .btn-cancel { background:var(--placeholder-bg); color:var(--text); }
+        .modal .btn-group .btn-save { background:#007aff; color:white; }
+        .modal .btn-group .btn-save:hover { background:#0066d9; }
+        .modal .tab-bar {
+            display:flex; gap:0; border-bottom:1px solid var(--border); margin-bottom:16px;
+        }
+        .modal .tab-bar button {
+            background:transparent; border:none; padding:8px 16px; font-weight:500;
+            color:var(--text-secondary); cursor:pointer; border-bottom:3px solid transparent;
+            transition:0.1s; font-size:0.9rem;
+        }
+        .modal .tab-bar button.active { color:#007aff; border-bottom-color:#007aff; }
+        .modal .tab-content { display:none; }
+        .modal .tab-content.active { display:block; }
+        #modalError { color:#ff3b30; margin-top:8px; font-size:0.85rem; display:none; }
+        .text-small { font-size:0.8rem; color:var(--text-secondary); }
+        .mt-1 { margin-top:6px; }
+        .csv-example {
+            background:var(--placeholder-bg); padding:8px; border-radius:8px;
+            font-family:monospace; font-size:0.75rem; white-space:pre-wrap; margin-top:6px;
+            color:var(--text-secondary);
+        }
+
+        /* ----- RESPONSIVE EXTRA ----- */
+        @media (max-width: 768px) {
+            body { padding:12px 10px; font-size:15px; }
+            header { gap:8px; }
+            .header-left { flex:1 1 100%; }
+            .header-right { margin-left:0; width:100%; justify-content:space-between; }
+            .search-box { flex:1 1 100%; }
+            header h1 { font-size:1.3rem; white-space:normal; }
+            .grid { grid-template-columns:1fr; gap:16px; }
+            .card-img { height:150px; }
+            .modal { padding:18px 14px; }
+            .modal h2 { font-size:1.2rem; }
+            .btn { font-size:0.75rem; padding:5px 10px; min-width:60px; }
+            .theme-selector button { font-size:0.75rem; padding:3px 10px; }
+            .btn-add { font-size:0.8rem; padding:5px 12px; }
+        }
+        @media (max-width: 480px) {
+            .card-img { height:130px; }
+            .card-body { padding:10px 12px; }
+            .card-body .nombre { font-size:0.9rem; }
+            .card-actions { gap:6px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-left">
+            <div class="logo-area" id="logoArea" title="Haz clic para cambiar el logo">
+                <span class="default-icon" id="logoDefault">📋</span>
+                <img id="logoImg" style="display:none;" alt="Logo">
+            </div>
+            <div class="logo-actions">
+                <button id="removeLogoBtn" title="Quitar logo">✕</button>
+            </div>
+            <h1>Catálogo</h1>
+        </div>
+        <div class="header-right">
+            <div class="theme-selector">
+                <button data-theme="light" class="active">☀️</button>
+                <button data-theme="dark">🌙</button>
+                <button data-theme="system">⚙️</button>
+            </div>
+            <button class="btn-add" id="btnAddEquipo">➕ Agregar</button>
+            <div class="search-box">
+                <span class="icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Buscar...">
+            </div>
+        </div>
+    </header>
+    <div class="result-count" id="resultCount">Cargando...</div>
+
+    <div class="grid" id="gridContainer"></div>
+</div>
+
+<!-- MODAL DE EDICIÓN -->
+<div class="modal-overlay" id="editModal">
+    <div class="modal">
+        <h2>✏️ Editar equipo</h2>
+        <p>Introduce la clave para modificar.</p>
+        <label for="claveInputEdit">Clave de seguridad</label>
+        <input type="password" id="claveInputEdit" placeholder="Ingresa la clave">
+        <div id="editFields" style="display:none; margin-top:10px;">
+            <label>Nombre</label>
+            <input type="text" id="editNombre">
+            <label>Referencia</label>
+            <input type="text" id="editReferencia">
+            <label>Imagen (opcional)</label>
+            <input type="file" id="editImagen" accept="image/*">
+            <div class="text-small mt-1">Selecciona una imagen para reemplazar la actual.</div>
+            <div style="margin-top:12px;">
+                <button class="btn btn-danger" id="btnDeleteEquipo" style="width:100%;">🗑️ Eliminar este equipo</button>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-cancel" id="modalEditCancel">Cancelar</button>
+            <button class="btn btn-save" id="modalEditSave">Guardar</button>
+        </div>
+        <div id="modalEditError" style="color:#ff3b30; margin-top:8px; font-size:0.85rem; display:none;"></div>
+    </div>
+</div>
+
+<!-- MODAL DE AGREGAR -->
+<div class="modal-overlay" id="addModal">
+    <div class="modal">
+        <h2>➕ Agregar equipo(s)</h2>
+        <p>Ingresa la clave para añadir nuevos equipos.</p>
+        <label for="claveInputAdd">Clave de seguridad</label>
+        <input type="password" id="claveInputAdd" placeholder="Ingresa la clave">
+        <div id="addFields" style="display:none; margin-top:10px;">
+            <div class="tab-bar">
+                <button class="active" data-tab="manual">Manual</button>
+                <button data-tab="csv">Importar CSV</button>
+            </div>
+            <!-- Tab Manual -->
+            <div class="tab-content active" id="tabManual">
+                <label>Nombre</label>
+                <input type="text" id="addNombre" placeholder="Nombre del equipo">
+                <label>Referencia</label>
+                <input type="text" id="addReferencia" placeholder="Referencia interna">
+                <label>Imagen (opcional)</label>
+                <input type="file" id="addImagen" accept="image/*">
+                <div class="text-small mt-1">Puedes subir una imagen para este equipo.</div>
+            </div>
+            <!-- Tab CSV -->
+            <div class="tab-content" id="tabCSV">
+                <label>Archivo CSV (punto y coma)</label>
+                <input type="file" id="addCSVFile" accept=".csv,.txt">
+                <div class="text-small mt-1">El CSV debe tener las columnas: <strong>Nombre;Referencia interna</strong></div>
+                <div class="csv-example">Ejemplo:<br>Nombre;Referencia interna<br>Detector de humo;SK-PHOTO-W<br>Sirena;GW-SIR-24</div>
+                <div style="margin-top:10px;">
+                    <button class="btn btn-primary" id="btnImportCSV" style="width:100%;">📥 Importar desde CSV</button>
+                </div>
+                <div id="csvImportResult" class="text-small mt-1"></div>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-cancel" id="modalAddCancel">Cancelar</button>
+            <button class="btn btn-save" id="modalAddSave">Agregar</button>
+        </div>
+        <div id="modalAddError" style="color:#ff3b30; margin-top:8px; font-size:0.85rem; display:none;"></div>
+    </div>
+</div>
+
+<script>
+    // ------------------------------------------------------------------
+    // 1. DATOS: CSV incrustado (el mismo que antes)
+    // ------------------------------------------------------------------
+    const csvData = `Nombre;Referencia interna
+ CEILING MOUNT SURFACE MOUNT BACK BOX, WHITE;GW-SBBCW
+160 CHARACTER DISPLAY ANNUNCIATOR;NF-LCD-160
+2 WIRE DET. MONITOR MODULE;AFFLM302
+4 ZONE CONVENTIONAL FIRE PANEL;SK-4
+50 WATT AMPLIFIER. 4 SPKR CRCTS. USE EVS-CE4 FOR ADDL CIRCUITS.;SK-EVS-50W
+6A SUPPLEMENTARY NOTIFICATION APPLIANCE CIRCUIT POWER SUPPLY WITH SYNC;GW-GFPS-6
+"75W  DIGITAL AUDIO AMPLIFIER ASSEMBLY WITH POWER SUPPLY; INCLUDES CHASSIS";NF-DAA2-7525
+"75W DIGITAL AUDIO AMPLIFIER ASSEMBLY WITH POWER SUPPLY; INCLUDES CHASSIS";NF-DAA2-7525E
+80 CHARACTER DISPLAY ANNUNCIATOR.  ōSECURITY KEYPADö;NF-FDU-80
+ADDRESSABLE 2 INPUT / 2 OUTPUT MODULE;GW-AMM-2RIF
+ADDRESSABLE CONTROL MODULE FOR ONE STYLE Y/Z (CLASS B/A) ZONE OF SUPERVISED POLARIZED NOTIFICATION APPLIANCES;FL-CMF-300
+ADDRESSABLE MANUAL PULL STATION, DUAL-ACTION, KEY LOCK;FL-BG-12LX
+"ADDRESSABLE MONITOR MODULE, CLASS ""A""";GW-AMM-4F
+ADDRESSABLE NODE EXPANDERM MULTI-RING, TWISTED PAIR AND FIBER;GW-ANX-MR-FO
+ADDRESSABLE RELAY MODULE -BUILT-IN TWO FORM-C RELAYS;FL-CRF-300
+"ADDRESSABLE SUB-LOOP MODULE, CLASS ""A""";GW-AMM-4SF
+"ADDRESSABLE THERMAL DETECTORS (FIXED); LITESPEED PROTOCOL ONLY - WHITE";FL-H365
+ANALOG DUCT DETECTOR HOUSING;AFSKSD505ADH
+ANALOG PHOTOELECTRONIC SENSOR, VELOCITI/CLIP, IVORY COLOR;GW-ASD-PL3-IV
+ANUNCIADOR MULTISITE PARA PANELES EN RED;NF-NCA-2
+ANUNCIADOR REMOTO LCD DE 80 CARACTERES;SK-6860
+"AUDIO COMMAND DOOR FOR CAB-D4;BLACK";NF-ADDR-D4
+Anunciador remoto con pantalla tćctil a color de 5 pulgadas,Notifier INSPIRE.;NF-RLD
+BACKBOX, WEATHERPROOF - WALL MOUNT, RED;GW-SA-WBB
+"BACKBOX; 1 CHASSIS; BLACK";NF-SBB-A4
+"BACKBOX; 1 CHASSIS; BLACK";NF-SBB-D4
+"BASE DE DETECTOR 6""";SS-B210LP
+BASE DE DETECTOR INTELIGENTE AISLADOR - BLANCA;SS-B224BI-WH
+BASE DE DETECTOR INTELIGENTE AISLADOR - IVORY;SS-B224BI-IV
+BASE DE DETECTOR SONORA DIRECCIONABLE;SS-B200SR
+BASE DE DETECTOR SONORA DIRECCIONABLE INTELIGENTE;SS-B200S
+BASE PARA DETECTORES INTELIGENTES;GW-ADB-FLF
+BASE PARA MONTAR LA FUENTE;GW-90375
+BASE PARA MONTAR MODULO ILI;GW-E3-ILICPLATE
+BASE PARA SENSOR - BLANCA;SS-B501-WH
+BATERIAS PARA PANEL 12 VOLTIOS 26 AMPERIOS;BAT-12VDC-26AH
+BATTERY DRESS PANEL FOR CAB-4 SERIES;NF-BP2-4
+BOTON RESET;SS-RTS151KEY
+CABLE PARA HANDSET;FC00535AX
+CAJA PARA 2 UNIDADES DEL MMI-6SF;GW-MBB-2
+CAJA PARA ANUNCIADOR NGA;GW-E3BB-BA1
+"CAMPANA (BELL, 6"", 24VDC";GW-SSM24-6
+CARCASA CON DETECTOR DE DUCTO DIRECCIONABLE INCLUYE SK-PHOTO-R;SK-DUCT-W
+CHASIS PARA MONTAR 02 BATERIAS PARA AMPLIFICADOR  DAA2-7525;NF-CHS-BH1-DAA2-7525
+CHASSIS TO MOUNT NCA-2 IN ABS-2D;NF-CHS-2D
+"CHASSIS; DVC; TOWO ROWS; INCLUDES MIC-1; USE ADDR-XX DOORS";NF-CA-2
+"CHASSIS; LOW PROFILE; FOR MOUNTING AA-30; LDM OR APS2-6R";NF-CHS-4L
+COMBUSTIBLE DETECTOR (GLP) MACURCO;GD-6
+Cable NUP de 10 pies para CLSS Gateway.;HON-32351718-001
+DETECTOR DE CALOR;
+DETECTOR DE CALOR DIR.;NF-FST-951
+DETECTOR DE CALOR DIRECCIONABLE INCLUYE BASE;SK-HEAT-W
+DETECTOR DE CALOR DIRECCIONABLE INCLUYE BASE;SS-HEAT
+DETECTOR DE CALOR ELECTRICO CON BATERIA DE RESPALDO;DETCAL-ELE
+DETECTOR DE CALOR INALAMBRICO INCLUYE BASE MONTAJE;FL-W-H355
+DETECTOR DE DUCTO DIRECCIONABLE;SS-DNR
+DETECTOR DE FLAMA;GW-30-2021-24
+DETECTOR DE GAS;GW-30ID202NETCO
+DETECTOR DE GAS COMBUSTIBLE (PROPANO Y METANO);GD-2A
+DETECTOR DE HUMO;GW-ASD-PL3
+DETECTOR DE HUMO ANALOGO CON RELAY;SS-D4120
+DETECTOR DE HUMO DE DUCTO CONVENCIONAL;SS-D2
+DETECTOR DE HUMO DIR. PARA DUCTO;NF-FSP-951R
+DETECTOR DE HUMO ELECTRICO CON RESPALDO DE BATERIA;SA9120BCN-DS
+DETECTOR DE HUMO FOTOELECTRICO DIRECCIONABLE INCLUYE BASE;SK-PHOTO-W
+DETECTOR DE HUMO FOTOELECTRICO INCLUYE BASE MONTAJE;FL-W-SD355
+DETECTOR DE HUMO FOTOELECTRICO Y CALOR;GW-ASD-PTL3
+DETECTOR DE MONOXIDO DE CARBONO MACURCO;CM-6 CO
+"DIGITAL VOICE COMMAND; EXTENDED MEMORY";NF-DVC-EM
+"DIGITAL VOICE COMMAND; KEYPAD DISPLAY";NF-DVC-KD
+DISPLAY ALFANUMERICO;GW-LCD-E3
+DOOR ASSEMBLY, SOLID DOOR, FOUR TIERS, BLACK;NF-DR-D4B
+"DRESS PLATE; DVC; 2 ROWS";NF-DPA-2B
+EMITTER - ALKALINE BATTERY;SK-OSE-SP-01
+ESTACION MANUAL DE ALARMA COMPLETA (PULL STATION) DIRECCIONABLE MS-95;GW-MS-7AF
+ESTACION MANUAL DIRECCIONABLE DOBLE ACCION;SK-PULL-DA
+ESTACION MANUAL INALAMBRICA ESPAäOL INCLUYE 4 BATERIAS;FL-W-BG12LXSP
+EXPANSION DE NODOS DIRECCIONABLES (TCP/IP);GW-ANX-SR
+EXPANSORA 8 CIRCUITOS DE AUDIO;SK-EVS-CE4
+FAULT ISOLATOR MODULE;GW-M500X
+16 AWG 2C SOLIDED SHIELDED FPLP (46061004);1PI1M16SHIELDED
+CABLE DE INCENDIO CALIBRE 16, DE 1 PAR TRENZADO;1PI1M16TW
+CABLE DE INCENDIO CALIBRE 18, DE 1 PAR TRENZADO;1PI1M18TW
+"CENTRAL PRCESSING UNIT FOR NFS2-3030; WITH DISPLAY";NF-CPU2-3030D
+LOOP CONTROL MODULE;NF-LCM-320
+AMPLIFICADOR DE 50 WATTS;GW-AM-50
+BASE PARA MONTAR AMPLIFICADOR;GW-AM-50-PLATE
+CAJA PARA EL CENTRO DE COMANDO;GW-INCC-CAB
+CENTRO DE COMANDO INCC;GW-INI-VGC-UTP
+CONECTOR PARA EL TELEFONO;GW-FPJ
+DITRIBUIDOR DE AUDIO INX;GW-INI-VGX-UTP
+DONDE VAN CONECTADOS LOS AMPLIFICADORES;GW-INI-VGE-UTP
+MODULO DE TELEFONO PARA EL INCC;GW-INCC-TEL
+PARA PODER MONTAR LAS TARJETAS INCC;GW-E3INCCCPLATE
+PARA PODER MONTAR LAS TARJETAS INX;GW-E3-INXCPLATE
+PUERTA PARA CAJA DEL CENTRO DE COMANDO;GW-INCC-IDT
+TAPA CIEGA PARA EL INCC;GW-INCC-BP
+TELEFONO PARA LOS PISOS;GW-FHS
+ASSY, FNL, 1110PT ADDR FACP, COMM, SK;AFSK6820
+"BACKBOX; 2 CHASSIS; BLACK";NF-SBB-B4
+"DRESS PANEL BLANK; UNUSED CABINET ROW(S); BLACK";NF-DP-1B
+EXPANSO DE 10 ZONAS PAR SK5208;AFSK5217
+INTELLIGENT FIRE ALARM CONTROL PANEL;FH-IFP-2100
+INTELLIGENT FIRE ALARM CONTROL PANEL WITH EMERGENCY COMMUNICATION SYSTEM;FH-IFP-2100ECSB
+PANEL DE ALARMA CONTRA INCENDIO 300 PUNTOS;FH-IFP-300
+PANEL DE ALARMA DIRECCIONABLE Y SISTEMA DE VOCEO;SK-6820EVS
+PANEL DE ALARMA NOTIFIER 01 1SLC NO EXPANDIBLE (INCLUYE CASE, LCD Y FUENTE);NF-NFS-320
+PANEL DE INCENDIO DE 5 ZONAS;SFC-105R
+PANEL DE INCENDIO DE 6 ZONAS MIRCOM;MI-FA106R
+PANEL DIRECCIONABLE 198 PUNTOS DIRECCIONABLES;SK-6808
+PANEL S3;GW-SLP-BLK
+Panel de control de alarma contra incendios inteligente, con pantalla tćctil a color de 10 pulgadas.;NF-N16E
+"198-PT INTELLIGENT ADDRESSABLE FACP WITH COMMUNICATOR; UNIVERSAL POWER SUPPLY 120 OR 240 VAC, 50/60 HZ";FL-ES-200X
+7100-SLIM (NARROW ENCLOSURE, RED);GW-7100-CAB
+CAJA PARA SISTEMA DE EVACUACION;GW-E3BB-BC/INX
+GABINETE TIPO C;GW-E3BB-BC/INCC
+GABINETE TIPO C;GW-E3ID2-C
+MODULO DE EXPANSION DE 10 ZONAS PARA EL GWF410;GW-CZM-400
+MŚdulo de conectividad en la nube, Gateway CLSS.;HON-CGW-MBB
+PUERTA PARA COLOCAR LOS ANUNCIADORES;GW-E3ID2-B
+2 - WIRE SMOKE MODLULE;AFSKSD500SDM
+ADDRESSABLE INPUT MODULE;AFSKSD500AIM
+ADDRESSABLE RELAY MODULE;AFSKSD500ARM
+ADVANCED MULTI-CRITERIA DETECTOR WITH FOUR SENSING ELEMENTS;GW-MCS-4-WARN
+ANALOG IONIZATION S/ DETECTOR;AFSK505AIS
+ANALOG NOTIFICATION MODULE;AFSKSD500ANM
+ANALOG PHOTOELECTRONIC SENSOR, REMOTE TEST CAPABLE;GW-ASD-PL2FR
+CODO 90 GRADOS 3/4 CPVC (20 UNI);VES-VP-ELB-90
+COUPLING 3/4 CPVC (15 UNI);VES-VP-COUP
+DETECTOR DE CALOR;HD-988
+DETECTOR DE CALOR 135F RR;7334OU
+DETECTOR DE CALOR DE 2 HILOS CONVENCIONAL;NB-758H2M
+DETECTOR DE GAS PROPANO / NATURAL CON SALIDA DE RELā DE ALARMA Y SALIDA DE RELā DE SUPERVISIŅN, CC 12 ~ 24V, LISTADO UL;D-GAS-PROP/NAT
+DETECTOR DE HUMO DIRECCIONABLE INCLUYE BASE;SS-PHOTO
+DETECTOR DE HUMO PHOTOELECTRICO DIRECCIONABLE;NF-FSP-951
+DETECTOR DE MONOXIDO DE CARBONO;AFBKCO1224
+DETECTOR VESDA;VES-VLF-500-00-UL
+ESTACION MANUAL DIRECCIONABLE;NF-NBG-12LXSP
+ETIQUETA DE PUNTO DE MUESTREO (200 UNI);VES-E700-SP-DCL
+FAC. MANAGEMENT SOFTWARE;AFSK5670
+GRAPA CLIP 3/4 CPVC (1 UNI);VES-VP-CLIP-US
+INTELLIGENTN POWER MODULE;AFSK5895XL
+INTELLIKNIGHT R/ ANNUNCIATOR GR;AFSK5860
+MODULO AISLADOR;NF-ISO-X
+MODULO DE CONTROL AUDIOVISUAL (UNO CADA 6 SIRENAS);NF-FCM-1
+MODULO MONITOR DE ROCEADORES;NF-FDM-1
+NETWORK INTERFACE CARD;SK-NIC
+PEGAMENTO PARA CPVC;VES-VP-CEMENT
+POWER SUPPLY, 24V, 120 VAC VERSION;VES-VPS-100US-120
+ROLLO MICROFIBRA TERRY CLOTH TOWELS 30X30CM 30PCS(CAJA 12 ROLLOS) ;05-GP01730
+SAMPLING POINT LABEL, 50 PER ROL;VES-E700-SP-DCL-PNT
+SINGLE-ENDED REFLECTED BEAM SENSOR WITH INTEGRAL SENSITIVITY TEST;GW-ABD-RT2F
+SLC EXPANDER, 127 POINTS;AFSK5815XL
+TAPON 3/4 CPVC (10 UNI);VES-VP-EC
+TEE 3/4 CPVC (15 UNI);VES-VP-TEE
+TUBERIA 3/4 CPVC (30M LINEALES);VES-VP-P105
+UNION 3/4 CPVC (10 UNI);VES-VP-UNION
+VALVULA DE PASO 3/4 CPVC;VES-VP-BV
+WIRE SMOKE DETECTOR;SD-269`;
+
+    // ------------------------------------------------------------------
+    // 2. CONSTANTES Y ESTADO
+    // ------------------------------------------------------------------
+    const CLAVE = 'KDJ9hco8#';
+    const STORAGE_KEY = 'catalogoEquiposData';
+    const THEME_KEY = 'catalogoTheme';
+    const LOGO_KEY = 'catalogoLogo';
+
+    let equipos = [];
+    let currentEditEquipo = null;
+
+    // ------------------------------------------------------------------
+    // 3. PARSEAR CSV (mejorado)
+    // ------------------------------------------------------------------
+    function parseCSV(csvText) {
+        // Normalizar saltos de línea
+        const lines = csvText.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+        const result = [];
+        let headers = [];
+        let inQuotes = false;
+        let currentLine = '';
+        // Unir líneas rotas por comillas (opcional)
+        const mergedLines = [];
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line && i > 0 && !inQuotes) continue;
+            if (!inQuotes && line === '') continue;
+            if (mergedLines.length === 0) {
+                mergedLines.push(line);
+            } else {
+                const last = mergedLines[mergedLines.length - 1];
+                // Si la última línea termina con comillas abiertas o la actual empieza con comillas
+                const openQuotes = (last.match(/"/g) || []).length % 2 !== 0;
+                if (openQuotes) {
+                    mergedLines[mergedLines.length - 1] = last + '\n' + line;
+                } else {
+                    mergedLines.push(line);
+                }
+            }
+        }
+
+        for (let i = 0; i < mergedLines.length; i++) {
+            const line = mergedLines[i];
+            if (!line) continue;
+            if (i === 0) {
+                headers = line.split(';').map(h => h.trim());
+                continue;
+            }
+            // Parsear respetando comillas
+            const values = [];
+            let current = '';
+            let inside = false;
+            for (let j = 0; j < line.length; j++) {
+                const char = line[j];
+                if (char === '"') {
+                    inside = !inside;
+                } else if (char === ';' && !inside) {
+                    values.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            values.push(current.trim());
+            const obj = {};
+            headers.forEach((h, idx) => {
+                let val = values[idx] || '';
+                if (val.startsWith('"') && val.endsWith('"')) {
+                    val = val.slice(1, -1).replace(/""/g, '"');
+                }
+                obj[h] = val;
+            });
+            if (obj['Referencia interna'] && obj['Referencia interna'].trim() !== '') {
+                result.push({
+                    nombre: obj['Nombre'] || '',
+                    referencia: obj['Referencia interna'] || '',
+                    imagenURL: null
+                });
+            }
+        }
+        return result;
+    }
+
+    // ------------------------------------------------------------------
+    // 4. CARGA Y GUARDADO DE DATOS
+    // ------------------------------------------------------------------
+    function loadData() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            try {
+                equipos = JSON.parse(stored);
+                console.log('📦 Datos cargados desde localStorage');
+                return;
+            } catch(e) {}
+        }
+        equipos = parseCSV(csvData).map(e => ({ ...e, imagenURL: null }));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(equipos));
+        console.log('📦 Datos cargados desde CSV y guardados en localStorage');
+    }
+
+    function saveData() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(equipos));
+    }
+
+    // ------------------------------------------------------------------
+    // 5. TEMA
+    // ------------------------------------------------------------------
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem(THEME_KEY, theme);
+        document.querySelectorAll('.theme-selector button').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.theme === theme);
+        });
+    }
+    function loadTheme() {
+        const saved = localStorage.getItem(THEME_KEY) || 'system';
+        applyTheme(saved);
+    }
+
+    // ------------------------------------------------------------------
+    // 6. LOGO
+    // ------------------------------------------------------------------
+    function loadLogo() {
+        const data = localStorage.getItem(LOGO_KEY);
+        const img = document.getElementById('logoImg');
+        const def = document.getElementById('logoDefault');
+        if (data) {
+            img.src = data;
+            img.style.display = 'block';
+            def.style.display = 'none';
+        } else {
+            img.style.display = 'none';
+            def.style.display = 'block';
+        }
+    }
+    function saveLogo(dataUrl) {
+        if (dataUrl) {
+            localStorage.setItem(LOGO_KEY, dataUrl);
+        } else {
+            localStorage.removeItem(LOGO_KEY);
+        }
+        loadLogo();
+    }
+
+    // ------------------------------------------------------------------
+    // 7. RENDER
+    // ------------------------------------------------------------------
+    const grid = document.getElementById('gridContainer');
+    const searchInput = document.getElementById('searchInput');
+    const resultCount = document.getElementById('resultCount');
+
+    function render(filter = '') {
+        const term = filter.toLowerCase().trim();
+        let filtered = equipos;
+        if (term) {
+            filtered = equipos.filter(e =>
+                e.referencia.toLowerCase().includes(term) ||
+                e.nombre.toLowerCase().includes(term)
+            );
+        }
+        resultCount.textContent = `Mostrando ${filtered.length} de ${equipos.length} equipos`;
+
+        grid.innerHTML = '';
+        if (filtered.length === 0) {
+            grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; color:var(--text-secondary); padding:30px;">No se encontraron equipos.</p>';
+            return;
+        }
+
+        filtered.forEach((eq) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.ref = eq.referencia;
+
+            const imgDiv = document.createElement('div');
+            imgDiv.className = 'card-img';
+            if (eq.imagenURL) {
+                const img = document.createElement('img');
+                img.src = eq.imagenURL;
+                img.alt = eq.referencia;
+                imgDiv.appendChild(img);
+            } else {
+                const placeholder = document.createElement('div');
+                placeholder.className = 'placeholder';
+                placeholder.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor"/>
+                        <circle cx="8.5" cy="8.5" r="2.5" stroke="currentColor"/>
+                        <path d="M22 15 L16 9 L6 19 L2 15" stroke="currentColor"/>
+                    </svg>
+                    <span>Sin imagen</span>
+                `;
+                imgDiv.appendChild(placeholder);
+            }
+            card.appendChild(imgDiv);
+
+            const body = document.createElement('div');
+            body.className = 'card-body';
+            const nombreSpan = document.createElement('div');
+            nombreSpan.className = 'nombre';
+            nombreSpan.textContent = eq.nombre;
+            const refSpan = document.createElement('div');
+            refSpan.className = 'referencia';
+            refSpan.textContent = eq.referencia;
+
+            body.appendChild(nombreSpan);
+            body.appendChild(refSpan);
+
+            const actions = document.createElement('div');
+            actions.className = 'card-actions';
+
+            const btnDownload = document.createElement('button');
+            btnDownload.className = 'btn btn-download';
+            btnDownload.textContent = '⬇️ Descargar';
+            btnDownload.addEventListener('click', (e) => {
+                e.stopPropagation();
+                downloadImage(eq);
+            });
+
+            const btnEdit = document.createElement('button');
+            btnEdit.className = 'btn btn-edit';
+            btnEdit.textContent = '✏️ Editar';
+            btnEdit.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openEditModal(eq);
+            });
+
+            actions.appendChild(btnDownload);
+            actions.appendChild(btnEdit);
+            body.appendChild(actions);
+            card.appendChild(body);
+            grid.appendChild(card);
+        });
+    }
+
+    // ------------------------------------------------------------------
+    // 8. DESCARGAR IMAGEN
+    // ------------------------------------------------------------------
+    function downloadImage(equipo) {
+        if (!equipo.imagenURL) {
+            alert('Este equipo no tiene imagen asignada.');
+            return;
+        }
+        const link = document.createElement('a');
+        link.href = equipo.imagenURL;
+        let ext = 'png';
+        if (equipo.imagenURL.startsWith('data:image/')) {
+            const match = equipo.imagenURL.match(/^data:image\/(\w+);/);
+            if (match) ext = match[1];
+        }
+        link.download = `${equipo.referencia}.${ext}`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // ------------------------------------------------------------------
+    // 9. MODAL DE EDICIÓN
+    // ------------------------------------------------------------------
+    const editModal = document.getElementById('editModal');
+    const claveEdit = document.getElementById('claveInputEdit');
+    const editFields = document.getElementById('editFields');
+    const editNombre = document.getElementById('editNombre');
+    const editReferencia = document.getElementById('editReferencia');
+    const editImagen = document.getElementById('editImagen');
+    const editError = document.getElementById('modalEditError');
+    const btnDelete = document.getElementById('btnDeleteEquipo');
+
+    function openEditModal(equipo) {
+        currentEditEquipo = equipo;
+        claveEdit.value = '';
+        editFields.style.display = 'none';
+        editError.style.display = 'none';
+        editModal.classList.add('active');
+        editNombre.value = equipo.nombre;
+        editReferencia.value = equipo.referencia;
+        editImagen.value = '';
+        claveEdit.disabled = false;
+        setTimeout(() => claveEdit.focus(), 100);
+    }
+    function closeEditModal() {
+        editModal.classList.remove('active');
+        currentEditEquipo = null;
+    }
+
+    claveEdit.addEventListener('input', function() {
+        if (this.value === CLAVE) {
+            editFields.style.display = 'block';
+            editError.style.display = 'none';
+            this.disabled = true;
+        } else {
+            editFields.style.display = 'none';
+        }
+    });
+
+    document.getElementById('modalEditCancel').addEventListener('click', closeEditModal);
+
+    document.getElementById('modalEditSave').addEventListener('click', function() {
+        if (claveEdit.value !== CLAVE) {
+            editError.textContent = '❌ Clave incorrecta.';
+            editError.style.display = 'block';
+            return;
+        }
+        if (!currentEditEquipo) return;
+        const newNombre = editNombre.value.trim();
+        const newRef = editReferencia.value.trim();
+        if (!newNombre || !newRef) {
+            editError.textContent = '⚠️ El nombre y la referencia son obligatorios.';
+            editError.style.display = 'block';
+            return;
+        }
+        const index = equipos.findIndex(e => e.referencia === currentEditEquipo.referencia);
+        if (index === -1) {
+            editError.textContent = '⚠️ Error: equipo no encontrado.';
+            editError.style.display = 'block';
+            return;
+        }
+        const fileInput = editImagen;
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                equipos[index].nombre = newNombre;
+                equipos[index].referencia = newRef;
+                equipos[index].imagenURL = e.target.result;
+                saveData();
+                render(searchInput.value);
+                closeEditModal();
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            equipos[index].nombre = newNombre;
+            equipos[index].referencia = newRef;
+            saveData();
+            render(searchInput.value);
+            closeEditModal();
+        }
+    });
+
+    btnDelete.addEventListener('click', function() {
+        if (!currentEditEquipo) return;
+        if (!confirm(`¿Eliminar el equipo "${currentEditEquipo.nombre}" (${currentEditEquipo.referencia})?`)) return;
+        const index = equipos.findIndex(e => e.referencia === currentEditEquipo.referencia);
+        if (index !== -1) {
+            equipos.splice(index, 1);
+            saveData();
+            render(searchInput.value);
+            closeEditModal();
+        }
+    });
+
+    editModal.addEventListener('click', function(e) {
+        if (e.target === this) closeEditModal();
+    });
+
+    // ------------------------------------------------------------------
+    // 10. MODAL DE AGREGAR (con importación CSV corregida)
+    // ------------------------------------------------------------------
+    const addModal = document.getElementById('addModal');
+    const claveAdd = document.getElementById('claveInputAdd');
+    const addFields = document.getElementById('addFields');
+    const addNombre = document.getElementById('addNombre');
+    const addReferencia = document.getElementById('addReferencia');
+    const addImagen = document.getElementById('addImagen');
+    const addCSVFile = document.getElementById('addCSVFile');
+    const addError = document.getElementById('modalAddError');
+    const csvImportResult = document.getElementById('csvImportResult');
+
+    function openAddModal() {
+        claveAdd.value = '';
+        addFields.style.display = 'none';
+        addError.style.display = 'none';
+        addModal.classList.add('active');
+        addNombre.value = '';
+        addReferencia.value = '';
+        addImagen.value = '';
+        addCSVFile.value = '';
+        csvImportResult.textContent = '';
+        claveAdd.disabled = false;
+        document.querySelectorAll('#addModal .tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelector('#tabManual').classList.add('active');
+        document.querySelectorAll('#addModal .tab-bar button').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === 'manual');
+        });
+        setTimeout(() => claveAdd.focus(), 100);
+    }
+    function closeAddModal() {
+        addModal.classList.remove('active');
+    }
+
+    claveAdd.addEventListener('input', function() {
+        if (this.value === CLAVE) {
+            addFields.style.display = 'block';
+            addError.style.display = 'none';
+            this.disabled = true;
+        } else {
+            addFields.style.display = 'none';
+        }
+    });
+
+    document.querySelectorAll('#addModal .tab-bar button').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tab = this.dataset.tab;
+            document.querySelectorAll('#addModal .tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelector(`#tab${tab.charAt(0).toUpperCase() + tab.slice(1)}`).classList.add('active');
+            document.querySelectorAll('#addModal .tab-bar button').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    document.getElementById('modalAddCancel').addEventListener('click', closeAddModal);
+
+    // Agregar manual
+    document.getElementById('modalAddSave').addEventListener('click', function() {
+        if (claveAdd.value !== CLAVE) {
+            addError.textContent = '❌ Clave incorrecta.';
+            addError.style.display = 'block';
+            return;
+        }
+        const nombre = addNombre.value.trim();
+        const referencia = addReferencia.value.trim();
+        if (!nombre || !referencia) {
+            addError.textContent = '⚠️ Nombre y referencia son obligatorios.';
+            addError.style.display = 'block';
+            return;
+        }
+        if (equipos.some(e => e.referencia === referencia)) {
+            addError.textContent = `⚠️ Ya existe un equipo con la referencia "${referencia}".`;
+            addError.style.display = 'block';
+            return;
+        }
+        const fileInput = addImagen;
+        if (fileInput.files && fileInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                equipos.push({
+                    nombre: nombre,
+                    referencia: referencia,
+                    imagenURL: e.target.result
+                });
+                saveData();
+                render(searchInput.value);
+                closeAddModal();
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            equipos.push({
+                nombre: nombre,
+                referencia: referencia,
+                imagenURL: null
+            });
+            saveData();
+            render(searchInput.value);
+            closeAddModal();
+        }
+    });
+
+    // Importar CSV (CORREGIDO)
+    document.getElementById('btnImportCSV').addEventListener('click', function() {
+        if (claveAdd.value !== CLAVE) {
+            addError.textContent = '❌ Clave incorrecta.';
+            addError.style.display = 'block';
+            return;
+        }
+        const file = addCSVFile.files[0];
+        if (!file) {
+            csvImportResult.textContent = '⚠️ Selecciona un archivo CSV.';
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const text = e.target.result;
+                const parsed = parseCSV(text);
+                let added = 0;
+                let skipped = 0;
+                parsed.forEach(item => {
+                    if (!item.referencia) return;
+                    if (equipos.some(e => e.referencia === item.referencia)) {
+                        skipped++;
+                        return;
+                    }
+                    equipos.push({
+                        nombre: item.nombre,
+                        referencia: item.referencia,
+                        imagenURL: null
+                    });
+                    added++;
+                });
+                saveData();
+                render(searchInput.value);
+                csvImportResult.textContent = `✅ Importados: ${added} nuevos. Omitidos (duplicados): ${skipped}.`;
+                addError.style.display = 'none';
+                addCSVFile.value = ''; // limpiar
+            } catch(err) {
+                csvImportResult.textContent = `❌ Error al procesar el archivo: ${err.message}`;
+            }
+        };
+        reader.onerror = function() {
+            csvImportResult.textContent = '❌ Error al leer el archivo.';
+        };
+        reader.readAsText(file);
+    });
+
+    addModal.addEventListener('click', function(e) {
+        if (e.target === this) closeAddModal();
+    });
+
+    // ------------------------------------------------------------------
+    // 11. LOGO INTERACTIVO
+    // ------------------------------------------------------------------
+    document.getElementById('logoArea').addEventListener('click', function() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.onchange = function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    saveLogo(ev.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        input.click();
+    });
+
+    document.getElementById('removeLogoBtn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (confirm('¿Quitar el logo actual?')) {
+            saveLogo(null);
+        }
+    });
+
+    // ------------------------------------------------------------------
+    // 12. EVENTOS DE TEMA Y AGREGAR
+    // ------------------------------------------------------------------
+    document.querySelectorAll('.theme-selector button').forEach(btn => {
+        btn.addEventListener('click', function() {
+            applyTheme(this.dataset.theme);
+        });
+    });
+
+    document.getElementById('btnAddEquipo').addEventListener('click', openAddModal);
+
+    // ------------------------------------------------------------------
+    // 13. BÚSQUEDA
+    // ------------------------------------------------------------------
+    searchInput.addEventListener('input', function() {
+        render(this.value);
+    });
+
+    // ------------------------------------------------------------------
+    // 14. INICIALIZAR
+    // ------------------------------------------------------------------
+    loadData();
+    loadTheme();
+    loadLogo();
+    render();
+
+    console.log('📦 Para restaurar datos originales: localStorage.removeItem("catalogoEquiposData"); location.reload();');
+</script>
+</body>
+</html>
