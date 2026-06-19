@@ -389,297 +389,120 @@
 
 <script>
     // ------------------------------------------------------------------
-    // 1. DATOS: CSV incrustado (el mismo que antes)
+    // 1. CONFIGURACIÓN: URL del backend
     // ------------------------------------------------------------------
-    const csvData = `Nombre;Referencia interna
- CEILING MOUNT SURFACE MOUNT BACK BOX, WHITE;GW-SBBCW
-160 CHARACTER DISPLAY ANNUNCIATOR;NF-LCD-160
-2 WIRE DET. MONITOR MODULE;AFFLM302
-4 ZONE CONVENTIONAL FIRE PANEL;SK-4
-50 WATT AMPLIFIER. 4 SPKR CRCTS. USE EVS-CE4 FOR ADDL CIRCUITS.;SK-EVS-50W
-6A SUPPLEMENTARY NOTIFICATION APPLIANCE CIRCUIT POWER SUPPLY WITH SYNC;GW-GFPS-6
-"75W  DIGITAL AUDIO AMPLIFIER ASSEMBLY WITH POWER SUPPLY; INCLUDES CHASSIS";NF-DAA2-7525
-"75W DIGITAL AUDIO AMPLIFIER ASSEMBLY WITH POWER SUPPLY; INCLUDES CHASSIS";NF-DAA2-7525E
-80 CHARACTER DISPLAY ANNUNCIATOR.  ōSECURITY KEYPADö;NF-FDU-80
-ADDRESSABLE 2 INPUT / 2 OUTPUT MODULE;GW-AMM-2RIF
-ADDRESSABLE CONTROL MODULE FOR ONE STYLE Y/Z (CLASS B/A) ZONE OF SUPERVISED POLARIZED NOTIFICATION APPLIANCES;FL-CMF-300
-ADDRESSABLE MANUAL PULL STATION, DUAL-ACTION, KEY LOCK;FL-BG-12LX
-"ADDRESSABLE MONITOR MODULE, CLASS ""A""";GW-AMM-4F
-ADDRESSABLE NODE EXPANDERM MULTI-RING, TWISTED PAIR AND FIBER;GW-ANX-MR-FO
-ADDRESSABLE RELAY MODULE -BUILT-IN TWO FORM-C RELAYS;FL-CRF-300
-"ADDRESSABLE SUB-LOOP MODULE, CLASS ""A""";GW-AMM-4SF
-"ADDRESSABLE THERMAL DETECTORS (FIXED); LITESPEED PROTOCOL ONLY - WHITE";FL-H365
-ANALOG DUCT DETECTOR HOUSING;AFSKSD505ADH
-ANALOG PHOTOELECTRONIC SENSOR, VELOCITI/CLIP, IVORY COLOR;GW-ASD-PL3-IV
-ANUNCIADOR MULTISITE PARA PANELES EN RED;NF-NCA-2
-ANUNCIADOR REMOTO LCD DE 80 CARACTERES;SK-6860
-"AUDIO COMMAND DOOR FOR CAB-D4;BLACK";NF-ADDR-D4
-Anunciador remoto con pantalla tćctil a color de 5 pulgadas,Notifier INSPIRE.;NF-RLD
-BACKBOX, WEATHERPROOF - WALL MOUNT, RED;GW-SA-WBB
-"BACKBOX; 1 CHASSIS; BLACK";NF-SBB-A4
-"BACKBOX; 1 CHASSIS; BLACK";NF-SBB-D4
-"BASE DE DETECTOR 6""";SS-B210LP
-BASE DE DETECTOR INTELIGENTE AISLADOR - BLANCA;SS-B224BI-WH
-BASE DE DETECTOR INTELIGENTE AISLADOR - IVORY;SS-B224BI-IV
-BASE DE DETECTOR SONORA DIRECCIONABLE;SS-B200SR
-BASE DE DETECTOR SONORA DIRECCIONABLE INTELIGENTE;SS-B200S
-BASE PARA DETECTORES INTELIGENTES;GW-ADB-FLF
-BASE PARA MONTAR LA FUENTE;GW-90375
-BASE PARA MONTAR MODULO ILI;GW-E3-ILICPLATE
-BASE PARA SENSOR - BLANCA;SS-B501-WH
-BATERIAS PARA PANEL 12 VOLTIOS 26 AMPERIOS;BAT-12VDC-26AH
-BATTERY DRESS PANEL FOR CAB-4 SERIES;NF-BP2-4
-BOTON RESET;SS-RTS151KEY
-CABLE PARA HANDSET;FC00535AX
-CAJA PARA 2 UNIDADES DEL MMI-6SF;GW-MBB-2
-CAJA PARA ANUNCIADOR NGA;GW-E3BB-BA1
-"CAMPANA (BELL, 6"", 24VDC";GW-SSM24-6
-CARCASA CON DETECTOR DE DUCTO DIRECCIONABLE INCLUYE SK-PHOTO-R;SK-DUCT-W
-CHASIS PARA MONTAR 02 BATERIAS PARA AMPLIFICADOR  DAA2-7525;NF-CHS-BH1-DAA2-7525
-CHASSIS TO MOUNT NCA-2 IN ABS-2D;NF-CHS-2D
-"CHASSIS; DVC; TOWO ROWS; INCLUDES MIC-1; USE ADDR-XX DOORS";NF-CA-2
-"CHASSIS; LOW PROFILE; FOR MOUNTING AA-30; LDM OR APS2-6R";NF-CHS-4L
-COMBUSTIBLE DETECTOR (GLP) MACURCO;GD-6
-Cable NUP de 10 pies para CLSS Gateway.;HON-32351718-001
-DETECTOR DE CALOR;
-DETECTOR DE CALOR DIR.;NF-FST-951
-DETECTOR DE CALOR DIRECCIONABLE INCLUYE BASE;SK-HEAT-W
-DETECTOR DE CALOR DIRECCIONABLE INCLUYE BASE;SS-HEAT
-DETECTOR DE CALOR ELECTRICO CON BATERIA DE RESPALDO;DETCAL-ELE
-DETECTOR DE CALOR INALAMBRICO INCLUYE BASE MONTAJE;FL-W-H355
-DETECTOR DE DUCTO DIRECCIONABLE;SS-DNR
-DETECTOR DE FLAMA;GW-30-2021-24
-DETECTOR DE GAS;GW-30ID202NETCO
-DETECTOR DE GAS COMBUSTIBLE (PROPANO Y METANO);GD-2A
-DETECTOR DE HUMO;GW-ASD-PL3
-DETECTOR DE HUMO ANALOGO CON RELAY;SS-D4120
-DETECTOR DE HUMO DE DUCTO CONVENCIONAL;SS-D2
-DETECTOR DE HUMO DIR. PARA DUCTO;NF-FSP-951R
-DETECTOR DE HUMO ELECTRICO CON RESPALDO DE BATERIA;SA9120BCN-DS
-DETECTOR DE HUMO FOTOELECTRICO DIRECCIONABLE INCLUYE BASE;SK-PHOTO-W
-DETECTOR DE HUMO FOTOELECTRICO INCLUYE BASE MONTAJE;FL-W-SD355
-DETECTOR DE HUMO FOTOELECTRICO Y CALOR;GW-ASD-PTL3
-DETECTOR DE MONOXIDO DE CARBONO MACURCO;CM-6 CO
-"DIGITAL VOICE COMMAND; EXTENDED MEMORY";NF-DVC-EM
-"DIGITAL VOICE COMMAND; KEYPAD DISPLAY";NF-DVC-KD
-DISPLAY ALFANUMERICO;GW-LCD-E3
-DOOR ASSEMBLY, SOLID DOOR, FOUR TIERS, BLACK;NF-DR-D4B
-"DRESS PLATE; DVC; 2 ROWS";NF-DPA-2B
-EMITTER - ALKALINE BATTERY;SK-OSE-SP-01
-ESTACION MANUAL DE ALARMA COMPLETA (PULL STATION) DIRECCIONABLE MS-95;GW-MS-7AF
-ESTACION MANUAL DIRECCIONABLE DOBLE ACCION;SK-PULL-DA
-ESTACION MANUAL INALAMBRICA ESPAäOL INCLUYE 4 BATERIAS;FL-W-BG12LXSP
-EXPANSION DE NODOS DIRECCIONABLES (TCP/IP);GW-ANX-SR
-EXPANSORA 8 CIRCUITOS DE AUDIO;SK-EVS-CE4
-FAULT ISOLATOR MODULE;GW-M500X
-16 AWG 2C SOLIDED SHIELDED FPLP (46061004);1PI1M16SHIELDED
-CABLE DE INCENDIO CALIBRE 16, DE 1 PAR TRENZADO;1PI1M16TW
-CABLE DE INCENDIO CALIBRE 18, DE 1 PAR TRENZADO;1PI1M18TW
-"CENTRAL PRCESSING UNIT FOR NFS2-3030; WITH DISPLAY";NF-CPU2-3030D
-LOOP CONTROL MODULE;NF-LCM-320
-AMPLIFICADOR DE 50 WATTS;GW-AM-50
-BASE PARA MONTAR AMPLIFICADOR;GW-AM-50-PLATE
-CAJA PARA EL CENTRO DE COMANDO;GW-INCC-CAB
-CENTRO DE COMANDO INCC;GW-INI-VGC-UTP
-CONECTOR PARA EL TELEFONO;GW-FPJ
-DITRIBUIDOR DE AUDIO INX;GW-INI-VGX-UTP
-DONDE VAN CONECTADOS LOS AMPLIFICADORES;GW-INI-VGE-UTP
-MODULO DE TELEFONO PARA EL INCC;GW-INCC-TEL
-PARA PODER MONTAR LAS TARJETAS INCC;GW-E3INCCCPLATE
-PARA PODER MONTAR LAS TARJETAS INX;GW-E3-INXCPLATE
-PUERTA PARA CAJA DEL CENTRO DE COMANDO;GW-INCC-IDT
-TAPA CIEGA PARA EL INCC;GW-INCC-BP
-TELEFONO PARA LOS PISOS;GW-FHS
-ASSY, FNL, 1110PT ADDR FACP, COMM, SK;AFSK6820
-"BACKBOX; 2 CHASSIS; BLACK";NF-SBB-B4
-"DRESS PANEL BLANK; UNUSED CABINET ROW(S); BLACK";NF-DP-1B
-EXPANSO DE 10 ZONAS PAR SK5208;AFSK5217
-INTELLIGENT FIRE ALARM CONTROL PANEL;FH-IFP-2100
-INTELLIGENT FIRE ALARM CONTROL PANEL WITH EMERGENCY COMMUNICATION SYSTEM;FH-IFP-2100ECSB
-PANEL DE ALARMA CONTRA INCENDIO 300 PUNTOS;FH-IFP-300
-PANEL DE ALARMA DIRECCIONABLE Y SISTEMA DE VOCEO;SK-6820EVS
-PANEL DE ALARMA NOTIFIER 01 1SLC NO EXPANDIBLE (INCLUYE CASE, LCD Y FUENTE);NF-NFS-320
-PANEL DE INCENDIO DE 5 ZONAS;SFC-105R
-PANEL DE INCENDIO DE 6 ZONAS MIRCOM;MI-FA106R
-PANEL DIRECCIONABLE 198 PUNTOS DIRECCIONABLES;SK-6808
-PANEL S3;GW-SLP-BLK
-Panel de control de alarma contra incendios inteligente, con pantalla tćctil a color de 10 pulgadas.;NF-N16E
-"198-PT INTELLIGENT ADDRESSABLE FACP WITH COMMUNICATOR; UNIVERSAL POWER SUPPLY 120 OR 240 VAC, 50/60 HZ";FL-ES-200X
-7100-SLIM (NARROW ENCLOSURE, RED);GW-7100-CAB
-CAJA PARA SISTEMA DE EVACUACION;GW-E3BB-BC/INX
-GABINETE TIPO C;GW-E3BB-BC/INCC
-GABINETE TIPO C;GW-E3ID2-C
-MODULO DE EXPANSION DE 10 ZONAS PARA EL GWF410;GW-CZM-400
-MŚdulo de conectividad en la nube, Gateway CLSS.;HON-CGW-MBB
-PUERTA PARA COLOCAR LOS ANUNCIADORES;GW-E3ID2-B
-2 - WIRE SMOKE MODLULE;AFSKSD500SDM
-ADDRESSABLE INPUT MODULE;AFSKSD500AIM
-ADDRESSABLE RELAY MODULE;AFSKSD500ARM
-ADVANCED MULTI-CRITERIA DETECTOR WITH FOUR SENSING ELEMENTS;GW-MCS-4-WARN
-ANALOG IONIZATION S/ DETECTOR;AFSK505AIS
-ANALOG NOTIFICATION MODULE;AFSKSD500ANM
-ANALOG PHOTOELECTRONIC SENSOR, REMOTE TEST CAPABLE;GW-ASD-PL2FR
-CODO 90 GRADOS 3/4 CPVC (20 UNI);VES-VP-ELB-90
-COUPLING 3/4 CPVC (15 UNI);VES-VP-COUP
-DETECTOR DE CALOR;HD-988
-DETECTOR DE CALOR 135F RR;7334OU
-DETECTOR DE CALOR DE 2 HILOS CONVENCIONAL;NB-758H2M
-DETECTOR DE GAS PROPANO / NATURAL CON SALIDA DE RELā DE ALARMA Y SALIDA DE RELā DE SUPERVISIŅN, CC 12 ~ 24V, LISTADO UL;D-GAS-PROP/NAT
-DETECTOR DE HUMO DIRECCIONABLE INCLUYE BASE;SS-PHOTO
-DETECTOR DE HUMO PHOTOELECTRICO DIRECCIONABLE;NF-FSP-951
-DETECTOR DE MONOXIDO DE CARBONO;AFBKCO1224
-DETECTOR VESDA;VES-VLF-500-00-UL
-ESTACION MANUAL DIRECCIONABLE;NF-NBG-12LXSP
-ETIQUETA DE PUNTO DE MUESTREO (200 UNI);VES-E700-SP-DCL
-FAC. MANAGEMENT SOFTWARE;AFSK5670
-GRAPA CLIP 3/4 CPVC (1 UNI);VES-VP-CLIP-US
-INTELLIGENTN POWER MODULE;AFSK5895XL
-INTELLIKNIGHT R/ ANNUNCIATOR GR;AFSK5860
-MODULO AISLADOR;NF-ISO-X
-MODULO DE CONTROL AUDIOVISUAL (UNO CADA 6 SIRENAS);NF-FCM-1
-MODULO MONITOR DE ROCEADORES;NF-FDM-1
-NETWORK INTERFACE CARD;SK-NIC
-PEGAMENTO PARA CPVC;VES-VP-CEMENT
-POWER SUPPLY, 24V, 120 VAC VERSION;VES-VPS-100US-120
-ROLLO MICROFIBRA TERRY CLOTH TOWELS 30X30CM 30PCS(CAJA 12 ROLLOS) ;05-GP01730
-SAMPLING POINT LABEL, 50 PER ROL;VES-E700-SP-DCL-PNT
-SINGLE-ENDED REFLECTED BEAM SENSOR WITH INTEGRAL SENSITIVITY TEST;GW-ABD-RT2F
-SLC EXPANDER, 127 POINTS;AFSK5815XL
-TAPON 3/4 CPVC (10 UNI);VES-VP-EC
-TEE 3/4 CPVC (15 UNI);VES-VP-TEE
-TUBERIA 3/4 CPVC (30M LINEALES);VES-VP-P105
-UNION 3/4 CPVC (10 UNI);VES-VP-UNION
-VALVULA DE PASO 3/4 CPVC;VES-VP-BV
-WIRE SMOKE DETECTOR;SD-269`;
-
-    // ------------------------------------------------------------------
-    // 2. CONSTANTES Y ESTADO
-    // ------------------------------------------------------------------
+    const API_BASE = 'https://distinguished-revenue-lamp-utah.trycloudflare.com';  // <--- CAMBIA ESTO
     const CLAVE = 'KDJ9hco8#';
-    const STORAGE_KEY = 'catalogoEquiposData';
-    const THEME_KEY = 'catalogoTheme';
-    const LOGO_KEY = 'catalogoLogo';
 
+    // ------------------------------------------------------------------
+    // 2. FUNCIONES DE API
+    // ------------------------------------------------------------------
+    async function apiGet(endpoint) {
+        const res = await fetch(`${API_BASE}${endpoint}`);
+        if (!res.ok) throw new Error(`Error ${res.status}`);
+        return res.json();
+    }
+
+    async function apiPost(endpoint, data) {
+        const res = await fetch(`${API_BASE}${endpoint}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-Key': CLAVE
+            },
+            body: JSON.stringify(data)
+        });
+        if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.error || `Error ${res.status}`);
+        }
+        return res.json();
+    }
+
+    async function apiPut(endpoint, data) {
+        const res = await fetch(`${API_BASE}${endpoint}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-Key': CLAVE
+            },
+            body: JSON.stringify(data)
+        });
+        if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.error || `Error ${res.status}`);
+        }
+        return res.json();
+    }
+
+    async function apiDelete(endpoint) {
+        const res = await fetch(`${API_BASE}${endpoint}`, {
+            method: 'DELETE',
+            headers: {
+                'X-API-Key': CLAVE
+            }
+        });
+        if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.error || `Error ${res.status}`);
+        }
+        return res.json();
+    }
+
+    // ------------------------------------------------------------------
+    // 3. DATOS (cargados desde el backend)
+    // ------------------------------------------------------------------
     let equipos = [];
     let currentEditEquipo = null;
 
     // ------------------------------------------------------------------
-    // 3. PARSEAR CSV (mejorado)
+    // 4. CARGA DE DATOS DESDE EL BACKEND
     // ------------------------------------------------------------------
-    function parseCSV(csvText) {
-        // Normalizar saltos de línea
-        const lines = csvText.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
-        const result = [];
-        let headers = [];
-        let inQuotes = false;
-        let currentLine = '';
-        // Unir líneas rotas por comillas (opcional)
-        const mergedLines = [];
-        for (let i = 0; i < lines.length; i++) {
-            const line = lines[i].trim();
-            if (!line && i > 0 && !inQuotes) continue;
-            if (!inQuotes && line === '') continue;
-            if (mergedLines.length === 0) {
-                mergedLines.push(line);
-            } else {
-                const last = mergedLines[mergedLines.length - 1];
-                // Si la última línea termina con comillas abiertas o la actual empieza con comillas
-                const openQuotes = (last.match(/"/g) || []).length % 2 !== 0;
-                if (openQuotes) {
-                    mergedLines[mergedLines.length - 1] = last + '\n' + line;
-                } else {
-                    mergedLines.push(line);
-                }
-            }
+    async function loadData() {
+        try {
+            equipos = await apiGet('/api/equipos');
+            console.log(`📦 Cargados ${equipos.length} equipos desde el backend`);
+        } catch (e) {
+            console.error('Error cargando equipos:', e);
+            equipos = [];
+            alert('No se pudo conectar con el backend. Verifica que el servidor esté corriendo.');
         }
-
-        for (let i = 0; i < mergedLines.length; i++) {
-            const line = mergedLines[i];
-            if (!line) continue;
-            if (i === 0) {
-                headers = line.split(';').map(h => h.trim());
-                continue;
-            }
-            // Parsear respetando comillas
-            const values = [];
-            let current = '';
-            let inside = false;
-            for (let j = 0; j < line.length; j++) {
-                const char = line[j];
-                if (char === '"') {
-                    inside = !inside;
-                } else if (char === ';' && !inside) {
-                    values.push(current.trim());
-                    current = '';
-                } else {
-                    current += char;
-                }
-            }
-            values.push(current.trim());
-            const obj = {};
-            headers.forEach((h, idx) => {
-                let val = values[idx] || '';
-                if (val.startsWith('"') && val.endsWith('"')) {
-                    val = val.slice(1, -1).replace(/""/g, '"');
-                }
-                obj[h] = val;
-            });
-            if (obj['Referencia interna'] && obj['Referencia interna'].trim() !== '') {
-                result.push({
-                    nombre: obj['Nombre'] || '',
-                    referencia: obj['Referencia interna'] || '',
-                    imagenURL: null
-                });
-            }
-        }
-        return result;
-    }
-
-    // ------------------------------------------------------------------
-    // 4. CARGA Y GUARDADO DE DATOS
-    // ------------------------------------------------------------------
-    function loadData() {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-            try {
-                equipos = JSON.parse(stored);
-                console.log('📦 Datos cargados desde localStorage');
-                return;
-            } catch(e) {}
-        }
-        equipos = parseCSV(csvData).map(e => ({ ...e, imagenURL: null }));
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(equipos));
-        console.log('📦 Datos cargados desde CSV y guardados en localStorage');
-    }
-
-    function saveData() {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(equipos));
     }
 
     // ------------------------------------------------------------------
     // 5. TEMA
     // ------------------------------------------------------------------
-    function applyTheme(theme) {
+    async function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem(THEME_KEY, theme);
         document.querySelectorAll('.theme-selector button').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.theme === theme);
         });
+        try {
+            await apiPost('/api/theme', { theme });
+            console.log('Tema guardado en backend');
+        } catch (e) {
+            console.warn('No se pudo guardar el tema en backend:', e);
+        }
     }
-    function loadTheme() {
-        const saved = localStorage.getItem(THEME_KEY) || 'system';
-        applyTheme(saved);
+
+    async function loadTheme() {
+        try {
+            const data = await apiGet('/api/theme');
+            applyTheme(data.theme || 'system');
+        } catch (e) {
+            console.warn('No se pudo cargar el tema desde backend, usando system');
+            applyTheme('system');
+        }
     }
 
     // ------------------------------------------------------------------
     // 6. LOGO
     // ------------------------------------------------------------------
-    function loadLogo() {
-        const data = localStorage.getItem(LOGO_KEY);
+    function loadLogoFromBase64(dataUrl) {
         const img = document.getElementById('logoImg');
         const def = document.getElementById('logoDefault');
-        if (data) {
-            img.src = data;
+        if (dataUrl) {
+            img.src = dataUrl;
             img.style.display = 'block';
             def.style.display = 'none';
         } else {
@@ -687,13 +510,25 @@ WIRE SMOKE DETECTOR;SD-269`;
             def.style.display = 'block';
         }
     }
-    function saveLogo(dataUrl) {
-        if (dataUrl) {
-            localStorage.setItem(LOGO_KEY, dataUrl);
-        } else {
-            localStorage.removeItem(LOGO_KEY);
+
+    async function loadLogo() {
+        try {
+            const data = await apiGet('/api/logo');
+            loadLogoFromBase64(data.logo);
+        } catch (e) {
+            console.warn('No se pudo cargar el logo desde backend');
+            loadLogoFromBase64(null);
         }
-        loadLogo();
+    }
+
+    async function saveLogoToBackend(dataUrl) {
+        try {
+            await apiPost('/api/logo', { logo: dataUrl || null });
+            console.log('Logo guardado en backend');
+        } catch (e) {
+            console.error('Error guardando logo:', e);
+            throw e;
+        }
     }
 
     // ------------------------------------------------------------------
@@ -831,6 +666,7 @@ WIRE SMOKE DETECTOR;SD-269`;
         claveEdit.disabled = false;
         setTimeout(() => claveEdit.focus(), 100);
     }
+
     function closeEditModal() {
         editModal.classList.remove('active');
         currentEditEquipo = null;
@@ -848,7 +684,7 @@ WIRE SMOKE DETECTOR;SD-269`;
 
     document.getElementById('modalEditCancel').addEventListener('click', closeEditModal);
 
-    document.getElementById('modalEditSave').addEventListener('click', function() {
+    document.getElementById('modalEditSave').addEventListener('click', async function() {
         if (claveEdit.value !== CLAVE) {
             editError.textContent = '❌ Clave incorrecta.';
             editError.style.display = 'block';
@@ -862,42 +698,49 @@ WIRE SMOKE DETECTOR;SD-269`;
             editError.style.display = 'block';
             return;
         }
-        const index = equipos.findIndex(e => e.referencia === currentEditEquipo.referencia);
-        if (index === -1) {
-            editError.textContent = '⚠️ Error: equipo no encontrado.';
-            editError.style.display = 'block';
-            return;
-        }
+        const oldRef = currentEditEquipo.referencia;
         const fileInput = editImagen;
+        let imagenURL = currentEditEquipo.imagenURL;
+
         if (fileInput.files && fileInput.files[0]) {
             const reader = new FileReader();
-            reader.onload = function(e) {
-                equipos[index].nombre = newNombre;
-                equipos[index].referencia = newRef;
-                equipos[index].imagenURL = e.target.result;
-                saveData();
-                render(searchInput.value);
-                closeEditModal();
+            reader.onload = async function(e) {
+                imagenURL = e.target.result;
+                await actualizarEquipo(oldRef, newNombre, newRef, imagenURL);
             };
             reader.readAsDataURL(fileInput.files[0]);
         } else {
-            equipos[index].nombre = newNombre;
-            equipos[index].referencia = newRef;
-            saveData();
-            render(searchInput.value);
-            closeEditModal();
+            await actualizarEquipo(oldRef, newNombre, newRef, imagenURL);
         }
     });
 
-    btnDelete.addEventListener('click', function() {
-        if (!currentEditEquipo) return;
-        if (!confirm(`¿Eliminar el equipo "${currentEditEquipo.nombre}" (${currentEditEquipo.referencia})?`)) return;
-        const index = equipos.findIndex(e => e.referencia === currentEditEquipo.referencia);
-        if (index !== -1) {
-            equipos.splice(index, 1);
-            saveData();
+    async function actualizarEquipo(oldRef, nombre, referencia, imagenURL) {
+        try {
+            await apiPut(`/api/equipos/${encodeURIComponent(oldRef)}`, {
+                nombre,
+                referencia,
+                imagenURL
+            });
+            await loadData();
             render(searchInput.value);
             closeEditModal();
+        } catch (e) {
+            editError.textContent = `⚠️ ${e.message}`;
+            editError.style.display = 'block';
+        }
+    }
+
+    btnDelete.addEventListener('click', async function() {
+        if (!currentEditEquipo) return;
+        if (!confirm(`¿Eliminar el equipo "${currentEditEquipo.nombre}" (${currentEditEquipo.referencia})?`)) return;
+        try {
+            await apiDelete(`/api/equipos/${encodeURIComponent(currentEditEquipo.referencia)}`);
+            await loadData();
+            render(searchInput.value);
+            closeEditModal();
+        } catch (e) {
+            editError.textContent = `⚠️ ${e.message}`;
+            editError.style.display = 'block';
         }
     });
 
@@ -906,7 +749,7 @@ WIRE SMOKE DETECTOR;SD-269`;
     });
 
     // ------------------------------------------------------------------
-    // 10. MODAL DE AGREGAR (con importación CSV corregida)
+    // 10. MODAL DE AGREGAR
     // ------------------------------------------------------------------
     const addModal = document.getElementById('addModal');
     const claveAdd = document.getElementById('claveInputAdd');
@@ -936,6 +779,7 @@ WIRE SMOKE DETECTOR;SD-269`;
         });
         setTimeout(() => claveAdd.focus(), 100);
     }
+
     function closeAddModal() {
         addModal.classList.remove('active');
     }
@@ -963,7 +807,7 @@ WIRE SMOKE DETECTOR;SD-269`;
     document.getElementById('modalAddCancel').addEventListener('click', closeAddModal);
 
     // Agregar manual
-    document.getElementById('modalAddSave').addEventListener('click', function() {
+    document.getElementById('modalAddSave').addEventListener('click', async function() {
         if (claveAdd.value !== CLAVE) {
             addError.textContent = '❌ Clave incorrecta.';
             addError.style.display = 'block';
@@ -976,38 +820,33 @@ WIRE SMOKE DETECTOR;SD-269`;
             addError.style.display = 'block';
             return;
         }
-        if (equipos.some(e => e.referencia === referencia)) {
-            addError.textContent = `⚠️ Ya existe un equipo con la referencia "${referencia}".`;
-            addError.style.display = 'block';
-            return;
-        }
         const fileInput = addImagen;
+        let imagenURL = null;
         if (fileInput.files && fileInput.files[0]) {
             const reader = new FileReader();
-            reader.onload = function(e) {
-                equipos.push({
-                    nombre: nombre,
-                    referencia: referencia,
-                    imagenURL: e.target.result
-                });
-                saveData();
-                render(searchInput.value);
-                closeAddModal();
+            reader.onload = async function(e) {
+                imagenURL = e.target.result;
+                await agregarEquipo(nombre, referencia, imagenURL);
             };
             reader.readAsDataURL(fileInput.files[0]);
         } else {
-            equipos.push({
-                nombre: nombre,
-                referencia: referencia,
-                imagenURL: null
-            });
-            saveData();
-            render(searchInput.value);
-            closeAddModal();
+            await agregarEquipo(nombre, referencia, null);
         }
     });
 
-    // Importar CSV (CORREGIDO)
+    async function agregarEquipo(nombre, referencia, imagenURL) {
+        try {
+            await apiPost('/api/equipos', { nombre, referencia, imagenURL });
+            await loadData();
+            render(searchInput.value);
+            closeAddModal();
+        } catch (e) {
+            addError.textContent = `⚠️ ${e.message}`;
+            addError.style.display = 'block';
+        }
+    }
+
+    // Importar CSV
     document.getElementById('btnImportCSV').addEventListener('click', function() {
         if (claveAdd.value !== CLAVE) {
             addError.textContent = '❌ Clave incorrecta.';
@@ -1020,32 +859,36 @@ WIRE SMOKE DETECTOR;SD-269`;
             return;
         }
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = async function(e) {
             try {
                 const text = e.target.result;
                 const parsed = parseCSV(text);
                 let added = 0;
                 let skipped = 0;
-                parsed.forEach(item => {
-                    if (!item.referencia) return;
-                    if (equipos.some(e => e.referencia === item.referencia)) {
-                        skipped++;
-                        return;
+                for (const item of parsed) {
+                    if (!item.referencia) continue;
+                    try {
+                        await apiPost('/api/equipos', {
+                            nombre: item.nombre,
+                            referencia: item.referencia,
+                            imagenURL: null
+                        });
+                        added++;
+                    } catch (err) {
+                        if (err.message.includes('ya existe')) {
+                            skipped++;
+                        } else {
+                            throw err;
+                        }
                     }
-                    equipos.push({
-                        nombre: item.nombre,
-                        referencia: item.referencia,
-                        imagenURL: null
-                    });
-                    added++;
-                });
-                saveData();
+                }
+                await loadData();
                 render(searchInput.value);
                 csvImportResult.textContent = `✅ Importados: ${added} nuevos. Omitidos (duplicados): ${skipped}.`;
                 addError.style.display = 'none';
-                addCSVFile.value = ''; // limpiar
-            } catch(err) {
-                csvImportResult.textContent = `❌ Error al procesar el archivo: ${err.message}`;
+                addCSVFile.value = '';
+            } catch (err) {
+                csvImportResult.textContent = `❌ Error: ${err.message}`;
             }
         };
         reader.onerror = function() {
@@ -1059,18 +902,88 @@ WIRE SMOKE DETECTOR;SD-269`;
     });
 
     // ------------------------------------------------------------------
-    // 11. LOGO INTERACTIVO
+    // 11. PARSEAR CSV (para importación)
+    // ------------------------------------------------------------------
+    function parseCSV(csvText) {
+        const lines = csvText.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+        const result = [];
+        let headers = [];
+        const mergedLines = [];
+        let inQuotes = false;
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line && i > 0 && !inQuotes) continue;
+            if (!inQuotes && line === '') continue;
+            if (mergedLines.length === 0) {
+                mergedLines.push(line);
+            } else {
+                const last = mergedLines[mergedLines.length - 1];
+                const openQuotes = (last.match(/"/g) || []).length % 2 !== 0;
+                if (openQuotes) {
+                    mergedLines[mergedLines.length - 1] = last + '\n' + line;
+                } else {
+                    mergedLines.push(line);
+                }
+            }
+        }
+        for (let i = 0; i < mergedLines.length; i++) {
+            const line = mergedLines[i];
+            if (!line) continue;
+            if (i === 0) {
+                headers = line.split(';').map(h => h.trim());
+                continue;
+            }
+            const values = [];
+            let current = '';
+            let inside = false;
+            for (let j = 0; j < line.length; j++) {
+                const char = line[j];
+                if (char === '"') {
+                    inside = !inside;
+                } else if (char === ';' && !inside) {
+                    values.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            values.push(current.trim());
+            const obj = {};
+            headers.forEach((h, idx) => {
+                let val = values[idx] || '';
+                if (val.startsWith('"') && val.endsWith('"')) {
+                    val = val.slice(1, -1).replace(/""/g, '"');
+                }
+                obj[h] = val;
+            });
+            if (obj['Referencia interna'] && obj['Referencia interna'].trim() !== '') {
+                result.push({
+                    nombre: obj['Nombre'] || '',
+                    referencia: obj['Referencia interna'] || ''
+                });
+            }
+        }
+        return result;
+    }
+
+    // ------------------------------------------------------------------
+    // 12. LOGO INTERACTIVO
     // ------------------------------------------------------------------
     document.getElementById('logoArea').addEventListener('click', function() {
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = 'image/*';
-        input.onchange = function(e) {
+        input.onchange = async function(e) {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(ev) {
-                    saveLogo(ev.target.result);
+                reader.onload = async function(ev) {
+                    try {
+                        await saveLogoToBackend(ev.target.result);
+                        loadLogo();
+                    } catch (err) {
+                        alert('Error al guardar el logo: ' + err.message);
+                    }
                 };
                 reader.readAsDataURL(file);
             }
@@ -1078,15 +991,20 @@ WIRE SMOKE DETECTOR;SD-269`;
         input.click();
     });
 
-    document.getElementById('removeLogoBtn').addEventListener('click', function(e) {
+    document.getElementById('removeLogoBtn').addEventListener('click', async function(e) {
         e.stopPropagation();
         if (confirm('¿Quitar el logo actual?')) {
-            saveLogo(null);
+            try {
+                await saveLogoToBackend(null);
+                loadLogo();
+            } catch (err) {
+                alert('Error al quitar el logo: ' + err.message);
+            }
         }
     });
 
     // ------------------------------------------------------------------
-    // 12. EVENTOS DE TEMA Y AGREGAR
+    // 13. EVENTOS DE TEMA Y AGREGAR
     // ------------------------------------------------------------------
     document.querySelectorAll('.theme-selector button').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -1097,21 +1015,27 @@ WIRE SMOKE DETECTOR;SD-269`;
     document.getElementById('btnAddEquipo').addEventListener('click', openAddModal);
 
     // ------------------------------------------------------------------
-    // 13. BÚSQUEDA
+    // 14. BÚSQUEDA
     // ------------------------------------------------------------------
     searchInput.addEventListener('input', function() {
         render(this.value);
     });
 
     // ------------------------------------------------------------------
-    // 14. INICIALIZAR
+    // 15. INICIALIZAR
     // ------------------------------------------------------------------
-    loadData();
-    loadTheme();
-    loadLogo();
-    render();
+    async function init() {
+        await loadData();
+        await loadTheme();
+        await loadLogo();
+        render();
+        console.log('🚀 Catálogo inicializado con backend en', API_BASE);
+    }
 
-    console.log('📦 Para restaurar datos originales: localStorage.removeItem("catalogoEquiposData"); location.reload();');
+    init().catch(e => {
+        console.error('Error en la inicialización:', e);
+        alert('No se pudo cargar la aplicación. Verifica que el backend esté corriendo.');
+    });
 </script>
 </body>
 </html>
