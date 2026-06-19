@@ -905,6 +905,10 @@
     // 11. PARSEAR CSV (para importación)
     // ------------------------------------------------------------------
     function parseCSV(csvText) {
+        // Quitar BOM si el archivo viene de Excel/Numbers en Mac
+        if (csvText.charCodeAt(0) === 0xFEFF) {
+            csvText = csvText.slice(1);
+        }
         const lines = csvText.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
         const result = [];
         let headers = [];
@@ -926,13 +930,15 @@
                 }
             }
         }
-        for (let i = 0; i < mergedLines.length; i++) {
-            const line = mergedLines[i];
-            if (!line) continue;
-            if (i === 0) {
-                headers = line.split(';').map(h => h.trim());
-                continue;
-            }
+        if (mergedLines.length === 0) return result;
+
+        // Detectar automáticamente el separador (; o ,) según la primera línea (encabezados)
+        const firstLine = mergedLines[0];
+        const semicolonCount = (firstLine.match(/;/g) || []).length;
+        const commaCount = (firstLine.match(/,/g) || []).length;
+        const delimiter = semicolonCount >= commaCount ? ';' : ',';
+
+        function splitLine(line, delim) {
             const values = [];
             let current = '';
             let inside = false;
@@ -940,7 +946,7 @@
                 const char = line[j];
                 if (char === '"') {
                     inside = !inside;
-                } else if (char === ';' && !inside) {
+                } else if (char === delim && !inside) {
                     values.push(current.trim());
                     current = '';
                 } else {
@@ -948,6 +954,17 @@
                 }
             }
             values.push(current.trim());
+            return values;
+        }
+
+        for (let i = 0; i < mergedLines.length; i++) {
+            const line = mergedLines[i];
+            if (!line) continue;
+            if (i === 0) {
+                headers = splitLine(line, delimiter).map(h => h.trim().toLowerCase());
+                continue;
+            }
+            const values = splitLine(line, delimiter);
             const obj = {};
             headers.forEach((h, idx) => {
                 let val = values[idx] || '';
@@ -956,11 +973,11 @@
                 }
                 obj[h] = val;
             });
-            if (obj['Referencia interna'] && obj['Referencia interna'].trim() !== '') {
-                result.push({
-                    nombre: obj['Nombre'] || '',
-                    referencia: obj['Referencia interna'] || ''
-                });
+            // Encabezados aceptados sin distinguir mayúsculas/minúsculas
+            const referencia = (obj['referencia interna'] || obj['referencia'] || '').trim();
+            const nombre = (obj['nombre'] || '').trim();
+            if (referencia !== '') {
+                result.push({ nombre, referencia });
             }
         }
         return result;
